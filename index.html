@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Kartenstadt | Home</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+	<button id="theme-toggle">Toggle Theme</button>
+    <script src="./script.js"></script>
+		<header>
+			<h1><a href="aboutme.html">KARTENSTADT</a></h1>
+		</header>
+		<main>
+			<section class="article-list">
+        <article class="article-card">
+            <div class="card-header">
+                <h2><a href="posts/The Serverless Problem and RSS.html">The Serverless Problem And Rss</a></h2>
+                <span class="post-meta">2026-04-11</span>
+            </div>
+            <div class="preview-content">
+                <h4>Tldr; RSS: https://kartenstadt/feed</h4>
+<p>If you’ve read the previous articles, you might know that this website runs on a <a href="https://serverlesswp.com">Serverless Wordpress</a> instance. Any Serverless setup will have one thing in common, a read-only file system. Which will be the cause of my problems for a while.</p>
+            </div>
+            <a href="posts/The Serverless Problem and RSS.html" class="read-more">View Post _</a>
+        </article>
+        
+        <article class="article-card">
+            <div class="card-header">
+                <h2><a href="posts/Reducing My Mobile Usage.html">Reducing My Mobile Usage</a></h2>
+                <span class="post-meta">2026-04-11</span>
+            </div>
+            <div class="preview-content">
+                <p>I have tried everything I could, i made my home screen minimal, I tried adding time restrictions (which failed, they’re annoying, I like control). The problem was always that even if i hid the app away from my home screen, i would have easy access to it through the library, and end up in a loop after subconsciously tapping at it.</p>
+            </div>
+            <a href="posts/Reducing My Mobile Usage.html" class="read-more">View Post _</a>
+        </article>
+        
+        <article class="article-card">
+            <div class="card-header">
+                <h2><a href="posts/How I got a Blog up, with Nothing.html">How I Got A Blog Up, With Nothing</a></h2>
+                <span class="post-meta">2026-04-10</span>
+            </div>
+            <div class="preview-content">
+                <p>A <del>complicated</del> simple guide to get a blog up for free<em>, while not using an SSG (<a href="https://en.wikipedia.org/wiki/Static_site_generator">Static Site Generator</a>). A <del>reliable</del> working WordPress instance </em><em>to get things started</em>*. Remember, life is like a sandbox, you can always fix things. ^ssg</p>
+            </div>
+            <a href="posts/How I got a Blog up, with Nothing.html" class="read-more">View Post _</a>
+        </article>
+        
+        <article class="article-card">
+            <div class="card-header">
+                <h2><a href="posts/The Making of This Blog.html">The Making Of This Blog</a></h2>
+                <span class="post-meta">2026-04-10</span>
+            </div>
+            <div class="preview-content">
+                <details open><summary><h2>The Idea</h2></summary>
+<p>A Steam profile-like website with a custom handmade image for the article backdrop, for this one being my notes. A simple basic HTML theme to ensure compatibility with any semi-modern browser. </p>
+            </div>
+            <a href="posts/The Making of This Blog.html" class="read-more">View Post _</a>
+        </article>
+        
+        <article class="article-card">
+            <div class="card-header">
+                <h2><a href="posts/The Discomfort of Mortality.html">The Discomfort Of Mortality</a></h2>
+                <span class="post-meta">2026-04-10</span>
+            </div>
+            <div class="preview-content">
+                <details open><summary><h2>Introduction:</h2></summary>
+<p>Not mine own, but of the objects I own. Perhaps it is some insecurity, but that’s not our topic. I bought a pen, I bought some pens, I bought a pencil, I bought a fountain <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>pen. All with the concern of ink supply, <em>DURABILITY</em> and support.</p>
+            </div>
+            <a href="posts/The Discomfort of Mortality.html" class="read-more">View Post _</a>
+        </article>
+        </section>
+		</main>
+		<footer>
+			<div class="footer-brand">KARTENSTADT</div>
+			<div class="footer-sub">Karte-map; Stadt-city</div>
+			<div class="footer-contact">
+				Email:
+				<a href="mailto:pineppolis@kartenstadt.org" class="footer-email"
+					>pineppolis@kartenstadt.org</a
+				>
+			</div>
+			<div class="footer-status">(always open)</div>
+		</footer>
+		<script>
+			// 1. Setup the 'Watcher' (Intersection Observer)
+			const observerOptions = {
+				threshold: 0.15, // Trigger when 15% of the card is visible
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						// Add the CSS class that triggers the animation
+						entry.target.classList.add("appear");
+						// Stop watching this card once it has appeared
+						observer.unobserve(entry.target);
+					}
+				});
+			}, observerOptions);
+
+			// 2. Tell the Watcher to look at every article card
+			document.querySelectorAll(".article-card").forEach((card) => {
+				observer.observe(card);
+			});
+		</script>
+	</body>
+</html>

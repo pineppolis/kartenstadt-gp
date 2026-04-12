@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<link rel="alternate" type="application/rss+xml" title="Kartenstadt RSS Feed" href="https://yourusername.github.io/kartenstadt/feed.xml" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title} | Kartenstadt</title>
+		<link rel="stylesheet" href="../style.css" />
+		<script>
+			window.MathJax = {
+				tex: {
+					inlineMath: [
+						["$", "$"],
+						["\\(", "\\)"],
+					],
+					displayMath: [
+						["$$", "$$"],
+						["\\[", "\\]"],
+					],
+					processEscapes: true,
+				},
+				options: {
+					ignoreHtmlClass: "tex2jax_ignore",
+					processHtmlClass: "tex2jax_process",
+				},
+			};
+		</script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+			id="MathJax-script"
+			async
+		></script>
+	</head>
+	<body>
+	<button id="theme-toggle">Toggle Theme</button>
+    <script src="../script.js"></script>
+		<header>
+			<h1><a href="../index.html">KARTENSTADT</a></h1>
+		</header>
+
+		<main id="post-content">
+			<h1>{title}</h1>
+			<div class="post-meta">
+				<span>{author}</span> - 
+				<span>{date}</span>
+			</div>
+			{body}
+		</main>
+
+		<footer>
+			<div class="footer-brand">KARTENSTADT</div>
+			<div class="footer-sub">Karte-map; Stadt-city</div>
+			<div class="footer-contact">
+				Email:
+				<a href="mailto:pineppolis@kartenstadt.org" class="footer-email"
+					>pineppolis@kartenstadt.org</a
+				>
+			</div>
+			<div class="footer-status">(always open)</div>
+		</footer>
+	</body>
+</html>

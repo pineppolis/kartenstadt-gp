@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Kartenstadt | Home</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+	<button id="theme-toggle">Toggle Theme</button>
+    <script src="./script.js"></script>
+		<header>
+			<h1><a href="aboutme.html">KARTENSTADT</a></h1>
+		</header>
+		<main>
+			<section class="article-list">{articles_placeholder}</section>
+		</main>
+		<footer>
+			<div class="footer-brand">KARTENSTADT</div>
+			<div class="footer-sub">Karte-map; Stadt-city</div>
+			<div class="footer-contact">
+				Email:
+				<a href="mailto:pineppolis@kartenstadt.org" class="footer-email"
+					>pineppolis@kartenstadt.org</a
+				>
+			</div>
+			<div class="footer-status">(always open)</div>
+		</footer>
+		<script>
+			// 1. Setup the 'Watcher' (Intersection Observer)
+			const observerOptions = {
+				threshold: 0.15, // Trigger when 15% of the card is visible
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						// Add the CSS class that triggers the animation
+						entry.target.classList.add("appear");
+						// Stop watching this card once it has appeared
+						observer.unobserve(entry.target);
+					}
+				});
+			}, observerOptions);
+
+			// 2. Tell the Watcher to look at every article card
+			document.querySelectorAll(".article-card").forEach((card) => {
+				observer.observe(card);
+			});
+		</script>
+	</body>
+</html>

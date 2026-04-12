@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   The Serverless Problem And Rss | Kartenstadt
+  </title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+   window.MathJax = {
+				tex: {
+					inlineMath: [
+						["$", "$"],
+						["\\(", "\\)"],
+					],
+					displayMath: [
+						["$$", "$$"],
+						["\\[", "\\]"],
+					],
+					processEscapes: true,
+				},
+				options: {
+					ignoreHtmlClass: "tex2jax_ignore",
+					processHtmlClass: "tex2jax_process",
+				},
+			};
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+ </head>
+ <body>
+  <button id="theme-toggle">
+   Toggle Theme
+  </button>
+  <script src="../script.js">
+  </script>
+  <header>
+   <h1>
+    <a href="../index.html">
+     KARTENSTADT
+    </a>
+   </h1>
+  </header>
+  <main id="post-content">
+   <h1>
+    The Serverless Problem And Rss
+   </h1>
+   <div class="post-meta">
+    <span>
+     pineppolis
+    </span>
+    -
+    <span>
+     April 11, 2026
+    </span>
+   </div>
+   <h4>
+    Tldr; RSS: https://kartenstadt/feed
+   </h4>
+   <p>
+    If you’ve read the previous articles, you might know that this website runs on a
+    <a href="https://serverlesswp.com">
+     Serverless Wordpress
+    </a>
+    instance. Any Serverless setup will have one thing in common, a read-only file system. Which will be the cause of my problems for a while.
+   </p>
+   <h1>
+    The Problem
+   </h1>
+   <p>
+    My
+    <strong>
+     media
+    </strong>
+    won’t load on an RSS Reader, and is tedious while publishing too.
+   </p>
+   <p>
+    I mentioned the file system being read-only, so, where am I storing my text files and
+    <strong>
+     media
+    </strong>
+    files then?
+The creator of this system is quite ingenious, all of my text files are never really stored on server, they stay on the
+    <strong>
+     Database.
+    </strong>
+   </p>
+   <h3>
+    What is a
+    <a href="https://developer.mozilla.org/en-US/docs/Glossary/Database">
+     database
+    </a>
+    ?
+   </h3>
+   <p>
+    It is where you store data that you need actively and it indexes them such that it can be searched easily. A database is basically a table, that’s what it is.
+   </p>
+   <h3>
+    So what’s the problem?
+   </h3>
+   <p>
+    <em>
+     MEDIA.
+    </em>
+    (imagine it like the
+    <a href="https://youtu.be/GpzH0WJ52kc?si=ERJo2QEDQPmMH4Kb">
+     Sega intro
+    </a>
+    ) You can’t store media in a table unless you are a crazy math nerd (I bet you can find it on Youtube). I was using
+    <a href="https://cloudinary.com">
+     Cloudinary
+    </a>
+    before tackling the issue of an RSS reader, which is supported by default in every Wordpress website, mine supports it too.
+   </p>
+   <p>
+    Thus, I tested it, the text rendered just fine, the problem was the
+    <em>
+     MEDIA
+    </em>
+    . It did not work, and there are two fixes:
+1. I switch away from a Serverless setup. (or)
+2. I buy into a cloud object storage system.
+3. Third option does exist btw, just not to the standards I wish to hold this website to.
+And, currently, I like
+    <strong>
+     none
+    </strong>
+    of these.
+   </p>
+   <h3>
+    What’s Object Storage?
+   </h3>
+   <p>
+    You might ask. I don’t know, but I did DuckDuckGo it.
+It’s storage, it’s just normal storage without labels like the database. You need the exact address to refer to your file.Like the file system on your pc.
+However, object storage extend beyond this definition. They have this thing called a
+    <a href="https://developer.mozilla.org/en-US/docs/Glossary/CDN">
+     CDN (Content Delivery Network)
+    </a>
+   </p>
+   <h3>
+    What’s a CDN?
+   </h3>
+   <p>
+    I attached an MDN(Mozilla Docs) link above, but here’s a quick summary. They take your file, spread it across the entire globe (ie. their servers) and then distribute it accordingly. When a user in Asia connects to your website, they get the Asia server.
+However, I don’t give a shit. This will have me lose control over the files and I’m a privacy freak who still has a gmail address.
+   </p>
+   <details open="">
+    <summary>
+     <h2>
+      My Solution
+     </h2>
+    </summary>
+    <p>
+     I will be ditching media
+     <em>
+      for now
+     </em>
+     , including the old uploaded files. I want RSS to work and my website to be reliable.
+    </p>
+    <h1>
+     RSS
+    </h1>
+    <p>
+     Why do i even want RSS? It’s simple, it debloats my website and gives you the content right away (not to say that my site is bloated, its quite appealing). And It’ll help with my original goal of keeping this website available everywhere easily.
+    </p>
+    <p>
+     My suggested aggregators:
+- For all Apple:
+     <a href="https://apps.apple.com/in/app/netnewswire-rss-reader/id1480640210">
+      NetNewsWire
+     </a>
+     - For Android:
+     <a href="https://f-droid.org/packages/me.ash.reader/">
+      ReadYou
+     </a>
+     - For Linux &amp; Windows:
+     <a href="https://apps.kde.org/en-gb/akregator/">
+      Akregator
+     </a>
+    </p>
+    <p>
+     You can add my feed manually in the apps via the URL: https://kartenstadt.org/feed.
+I’ll also be adding a button on the home page.
+    </p>
+    <p>
+     PS: I
+     <em>
+      always
+     </em>
+     attach a reliable source. Like for database and CDN, not because I’m stupid and can’t read, there are just better ways to get into this stuff, and the
+     <a href="https://developer.mozilla.org/en-US/">
+      MDN
+     </a>
+     website is so beautiful.
+In case you have a better source or would like to tell me something really really really cool (or lame), I have an email: pineppolis@kartenstadt.org
+    </p>
+    <p>
+     11-02-2026
+    </p>
+    <hr/>
+    <p>
+     Annotations: 0,3722 SHA-256 100ca6a97df62a0817e9
+     <br/>
+     …
+    </p>
+   </details>
+  </main>
+  <footer>
+   <div class="footer-brand">
+    KARTENSTADT
+   </div>
+   <div class="footer-sub">
+    Karte-map; Stadt-city
+   </div>
+   <div class="footer-contact">
+    Email:
+    <a class="footer-email" href="mailto:pineppolis@kartenstadt.org">
+     pineppolis@kartenstadt.org
+    </a>
+   </div>
+   <div class="footer-status">
+    (always open)
+   </div>
+  </footer>
+ </body>
+</html>
