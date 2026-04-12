@@ -1,0 +1,14 @@
+# Ignore the build engine
+postbuilder.py
+
+# Ignore the conversion database
+converted_files.json
+
+# Ignore Python environments and cache
+venv/
+__pycache__/
+.env
+
+# Ignore OS-specific junk
+.DS_Store
+Thumbs.db
