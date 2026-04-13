@@ -1,19 +1,17 @@
 /* --- LIGHT MODE OVERRIDES --- */
 body.light-mode {
-	--bg-color: #fcfcfc;
-	--code-bg: #f0f0f0;
-	--text-main: #1a1a1a;
-	--text-muted: #576574;
-	--border-color: #d1d1d1;
-
-	/* You can keep the same heading colors or darken them for readability */
-	--h1-color: #bf3a1d;
-	--h2-color: #c46b1f;
+    --bg-color: #fcfcfc;
+    --code-bg: #f0f0f0;
+    --text-main: #1a1a1a;
+    --text-muted: #576574;
+    --border-color: #d1d1d1;
+    --h1-color: #bf3a1d;
+    --h2-color: #c46b1f;
 }
 
 /* Add a smooth transition to the body so the color swap isn't jarring */
 body {
-	transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Style for the toggle button */
@@ -30,8 +28,9 @@ border-radius: 4px;
 font-family: 'IBM Plex Mono', monospace;
 z-index: 1000;
 }
+
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* --- 1. FONTS --- */
@@ -39,67 +38,64 @@ z-index: 1000;
 
 /* --- 2. THEME VARIABLES --- */
 :root {
-	--bg-color: #100f0f;
-	--code-bg: #131313;
-	--text-main: #E2E2E2;
-	--text-muted: #7f8c8d;
-	--border-color: #2a2a2a;
-	--accent-gold: #d4a76a;      /* From your footer image */
+    --bg-color: #100f0f;
+    --code-bg: #131313;
+    --text-main: #E2E2E2;
+    --text-muted: #7f8c8d;
+    --border-color: #2a2a2a;
+    --accent-gold: #d4a76a;
 
-	/* Heading Accents */
-	--h1-color: #e35535;
-	--h2-color: #e98a36;
-	--h3-color: #efbd5d;
-	--h4-color: #9ece6a;
-	--h5-color: #7aa2f7;
-	--h6-color: #bb9af7;
+    /* Heading Accents */
+    --h1-color: #e35535;
+    --h2-color: #e98a36;
+    --h3-color: #efbd5d;
+    --h4-color: #9ece6a;
+    --h5-color: #7aa2f7;
+    --h6-color: #bb9af7;
 }
 
 /* --- 3. BASE LAYOUT --- */
 body {
-	background-color: var(--bg-color);
-	color: var(--text-main);
-	font-family: 'IBM Plex Mono', monospace;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'IBM Plex Mono', monospace;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* --- 4. HEADER --- */
 header {
-	text-align: center;
-	padding: 80px 20px 40px;
+    text-align: center;
+    padding: 80px 20px 40px;
 }
 
 header h1 a {
-	text-decoration: none;
-	color: var(--text-main);
-	font-weight: 700 !important;
-	font-style: normal !important;
-	letter-spacing: 5px;
-	text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 700 !important;
+    font-style: normal !important;
+    letter-spacing: 5px;
+    text-transform: uppercase;
 }
 
-
-/* --- 5. CONTENT WINDOW (Differentiated with Shadow) --- */
+/* --- 5. CONTENT WINDOW --- */
 main {
-	flex: 1;
-	width: 90%;
-	max-width: 850px;
-	margin: 0 auto 60px;
-	padding: 40px;
-	background-color: var(--bg-color); /* Same as BG */
-
-	/* Soft, dark lift effect */
-	box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(255, 255, 255, 0.02);
-	border-radius: 4px;
-	line-height: 1.7;
-	word-wrap: break-word;
+    flex: 1;
+    width: 90%;
+    max-width: 850px;
+    margin: 0 auto 60px;
+    padding: 40px;
+    background-color: var(--bg-color);
+    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(255, 255, 255, 0.02);
+    border-radius: 4px;
+    line-height: 1.7;
+    word-wrap: break-word;
 }
 
-/* --- 6. HEADINGS (1px Underline @ 0.3 Opacity) --- */
-main h1 { color: var(--h1-color); text-align: center; width: 100% }
+/* --- 6. HEADINGS --- */
+main h1 { color: var(--h1-color); text-align: center; width: 100%; }
 main h2 { color: var(--h2-color); border-bottom: 1px solid rgba(233, 138, 54, 0.3); }
 main h3 { color: var(--h3-color); border-bottom: 1px solid rgba(239, 189, 93, 0.3); }
 main h4 { color: var(--h4-color); border-bottom: 1px solid rgba(158, 206, 106, 0.3); }
@@ -107,185 +103,211 @@ main h5 { color: var(--h5-color); border-bottom: 1px solid rgba(122, 162, 247, 0
 main h6 { color: var(--h6-color); border-bottom: 1px solid rgba(187, 154, 247, 0.3); }
 
 main h1, main h2, main h3, main h4, main h5, main h6 {
-	padding-bottom: 4px;
-	margin-top: 2rem;
-	margin-bottom: 1rem;
+    padding-bottom: 4px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 /* --- 7. CODE & ELEMENTS --- */
 pre {
-	background-color: var(--code-bg);
-	border: 1px solid var(--border-color);
-	border-radius: 3px;
-	padding: 1.25rem;
-	overflow-x: auto;
-	margin: 1.5rem 0;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
 }
 
 pre code { background-color: transparent; padding: 0; display: block; }
 
 p code {
-	background-color: var(--code-bg);
-	border: 1px solid var(--border-color);
-	border-radius: 3px;
-	padding: 0.2rem 0.4rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 0.2rem 0.4rem;
 }
 
-/* --- 8. FOOTER (Mirroring your Image) --- */
+/* --- 8. FOOTER --- */
 footer {
-	text-align: center;
-	padding: 80px 20px;
+    text-align: center;
+    padding: 80px 20px;
 }
 
 .footer-brand {
-	font-size: 1.5rem;
-	letter-spacing: 4px;
-	text-transform: uppercase;
-	font-weight: bold;
-	margin-bottom: 5px;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .footer-sub {
-	font-size: 0.85rem;
-	color: var(--text-muted);
-	margin-bottom: 12px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
 }
 
 .footer-email {
-	color: var(--accent-gold);
-	text-decoration: underline;
-	font-size: 0.9rem;
+    color: var(--accent-gold);
+    text-decoration: underline;
+    font-size: 0.9rem;
 }
 
 .footer-status {
-	font-size: 0.75rem;
-	opacity: 0.5;
-	margin-top: 5px;
+    font-size: 0.75rem;
+    opacity: 0.5;
+    margin-top: 5px;
 }
 
-a { color: var(--h6-color); font-style:italic; }
+a { color: var(--h6-color); font-style: italic; }
 
-/* Remove the default triangle and add a custom indicator */
 summary {
-		list-style: none; /* Removes arrow in Chrome/Firefox */
-		cursor: pointer;
-		outline: none;
+    list-style: none;
+    cursor: pointer;
+    outline: none;
 }
 
 summary::-webkit-details-marker {
-		display: none; /* Removes arrow in Safari */
+    display: none;
 }
 
 summary h2 {
-		display: flex;
-		align-items: center;
-		margin-top: 1rem; /* Adjust spacing for collapsed state */
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
 }
 
-/* Add a plus/minus sign before the heading */
 summary h2::before {
-		content: "+";
-		margin-right: 15px;
-		color: var(--h2-color);
-		opacity: 0.5;
-		font-family: monospace;
+    content: "+";
+    margin-right: 15px;
+    color: var(--h2-color);
+    opacity: 0.5;
+    font-family: monospace;
 }
 
 details[open] summary h2::before {
-		content: "−"; /* Changes to a minus when open */
+    content: "−";
 }
 
-/* Smooth out the content appearance */
 details {
-		margin-bottom: 1rem;
-		transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
 }
 
-.post-meta{
-	color: var(--text-muted)
+.post-meta {
+    color: var(--text-muted);
 }
+
 .date {
-		text-align: right;
-		color: var(--text-muted);
+    text-align: right;
+    color: var(--text-muted);
 }
 
-/* --- 9. ARTICLE CARDS (BOXES) --- */
+/* --- 9. ARTICLE CARDS --- */
 .article-list {
-	display: flex;
-	flex-direction: column;
-	gap: 40px; /* Space between article boxes */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .article-card {
-	border: 1px solid var(--border-color);
-	padding: 25px;
-	border-radius: 4px;
-	background-color: rgba(255, 255, 255, 0.02); /* Very subtle lift */
-	transition: border-color 0.3s ease;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.article-card.appear {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .article-card:hover {
-	border-color: var(--h2-color); /* Highlight border on hover */
+    border-color: var(--h2-color);
 }
 
 .card-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: baseline;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-	margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 15px;
 }
 
 .article-card h2 {
-	margin: 0;
-	border-bottom: none !important; /* Overriding your main h2 style */
-	font-size: 1.4rem;
+    margin: 0;
+    border-bottom: none !important;
+    font-size: 1.4rem;
 }
 
 .article-card h2 a {
-	text-decoration: none;
-	font-style: normal; /* Removes the global italic link style for titles */
-	color: var(--h2-color);
+    text-decoration: none;
+    font-style: normal;
+    color: var(--h2-color);
 }
 
 .preview-content {
-	font-size: 0.95rem;
-	color: var(--text-main);
-	opacity: 0.8;
-	margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    opacity: 0.8;
+    margin-bottom: 15px;
 }
 
 .read-more {
-	font-size: 0.8rem;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	color: var(--accent-gold) !important;
-	text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-gold) !important;
+    text-decoration: none;
 }
 
-.read-more:hover {
-	text-decoration: underline;
-}
-
-/* --- 10. ANIMATION STATES --- */
-.article-card {
-	opacity: 0;
-	transform: translateY(20px);
-	/* This ensures the 'pop' is smooth when the class is added */
-	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* This class will be 'injected' by JavaScript when you scroll */
-.article-card.appear {
-	opacity: 1;
-	transform: translateY(0);
-}
-/* Add this to style.css */
 main img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5rem auto; /* Centers the image and gives it breathing room */
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- 10. RESPONSIVE DESIGN --- */
+@media screen and (max-width: 600px) {
+    main {
+        width: 100%;
+        padding: 25px 15px; /* Fixed: Reduced large padding that caused cramping */
+        margin-bottom: 30px;
+        box-shadow: none;
+    }
+
+    .card-header, .post-header {
+        flex-direction: column; /* Fixed: Prevents title and date from overlapping */
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .date {
+        text-align: left;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+
+    header {
+        padding: 40px 15px 20px;
+    }
+
+    header h1 a {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    footer {
+        padding: 40px 15px;
+    }
+
+    main h1 {
+        font-size: 1.6rem;
+    }
 }
