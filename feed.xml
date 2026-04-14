@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Kartenstadt</title>
+    <link>https://pineppolis.github.io/kartenstadt/</link>
+    <description>Karte-map; Stadt-city</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Apr 2026 19:47:37 +0000</lastBuildDate>
+    <atom:link href="https://pineppolis.github.io/kartenstadt/feed.xml" rel="self" type="application/rss+xml" />
+    
+        <item>
+            <title>The Serverless Problem And Rss</title>
+            <link>https://pineppolis.github.io/kartenstadt/posts/The Serverless Problem and RSS.html</link>
+            <description><![CDATA[<h4>Tldr; RSS: https://kartenstadt/feed</h4>
+<p>If you’ve read the previous articles, you might know that this website runs on a <a href="https://serverlesswp.com">Serverless Wordpress</a> instance. Any Serverless setup will have one thing in common, a read-only file system. Which will be the cause of my problems for a while.</p>
+<h1>The Problem</h1>
+<p>My <strong>media</strong> won’t load on an RSS Reader, and is tedious while publishing too.</p>
+<p>I mentioned the file system being read-only, so, where am I storing my text files and <strong>media</strong> files then?
+The creator of this system is quite ingenious, all of my text files are never really stored on server, they stay on the <strong>Database.</strong></p>
+<h3>What is a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Database">database</a>?</h3>
+<p>It is where you store data that you need actively and it indexes them such that it can be searched easily. A database is basically a table, that’s what it is.</p>
+<h3>So what’s the problem?</h3>
+<p><em>MEDIA.</em> (imagine it like the <a href="https://youtu.be/GpzH0WJ52kc?si=ERJo2QEDQPmMH4Kb">Sega intro</a>) You can’t store media in a table unless you are a crazy math nerd (I bet you can find it on Youtube). I was using <a href="https://cloudinary.com">Cloudinary</a> before tackling the issue of an RSS reader, which is supported by default in every Wordpress website, mine supports it too.</p>
+<p>Thus, I tested it, the text rendered just fine, the problem was the <em>MEDIA</em>. It did not work, and there are two fixes:
+1. I switch away from a Serverless setup. (or)
+2. I buy into a cloud object storage system.
+3. Third option does exist btw, just not to the standards I wish to hold this website to.
+And, currently, I like <strong>none</strong> of these.</p>
+<h3>What’s Object Storage?</h3>
+<p>You might ask. I don’t know, but I did DuckDuckGo it.
+It’s storage, it’s just normal storage without labels like the database. You need the exact address to refer to your file.Like the file system on your pc.
+However, object storage extend beyond this definition. They have this thing called a <a href="https://developer.mozilla.org/en-US/docs/Glossary/CDN">CDN (Content Delivery Network)</a></p>
+<h3>What’s a CDN?</h3>
+<p>I attached an MDN(Mozilla Docs) link above, but here’s a quick summary. They take your file, spread it across the entire globe (ie. their servers) and then distribute it accordingly. When a user in Asia connects to your website, they get the Asia server.
+However, I don’t give a shit. This will have me lose control over the files and I’m a privacy freak who still has a gmail address.</p>
+<details open><summary><h2>My Solution</h2></summary>
+<p>I will be ditching media <em>for now</em>, including the old uploaded files. I want RSS to work and my website to be reliable.</p>
+<h1>RSS</h1>
+<p>Why do i even want RSS? It’s simple, it debloats my website and gives you the content right away (not to say that my site is bloated, its quite appealing). And It’ll help with my original goal of keeping this website available everywhere easily.</p>
+<p>My suggested aggregators:
+- For all Apple: <a href="https://apps.apple.com/in/app/netnewswire-rss-reader/id1480640210">NetNewsWire</a>
+- For Android: <a href="https://f-droid.org/packages/me.ash.reader/">ReadYou</a>
+- For Linux &amp; Windows: <a href="https://apps.kde.org/en-gb/akregator/">Akregator</a></p>
+<p>You can add my feed manually in the apps via the URL: https://kartenstadt.org/feed.
+I’ll also be adding a button on the home page.</p>
+<p>PS: I <em>always</em> attach a reliable source. Like for database and CDN, not because I’m stupid and can’t read, there are just better ways to get into this stuff, and the <a href="https://developer.mozilla.org/en-US/">MDN</a> website is so beautiful.
+In case you have a better source or would like to tell me something really really really cool (or lame), I have an email: pineppolis@kartenstadt.org</p>
+<p>11-02-2026</p></details>]]></description>
+            <pubDate>Sat, 11 Apr 2026 21:05:08 +0000</pubDate>
+            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/The Serverless Problem and RSS.html</guid>
+        </item>
+        <item>
+            <title>Reducing My Mobile Usage</title>
+            <link>https://pineppolis.github.io/kartenstadt/posts/Reducing My Mobile Usage.html</link>
+            <description><![CDATA[<p>I have tried everything I could, i made my home screen minimal, I tried adding time restrictions (which failed, they’re annoying, I like control). The problem was always that even if i hid the app away from my home screen, i would have easy access to it through the library, and end up in a loop after subconsciously tapping at it.</p>
+<p><img src="https://pineppolis.github.io/kartenstadt/assets/suggested-apps-1.jpeg" alt="suggested-apps-1.jpeg" width="400">
+ <span class="comment">%% The suggested apps in question.%%</span> </p>
+<p>Thus, I found a solution, removing these apps from visibility all together, while not restricting access in any manner.</p>
+<details open><summary><h2>The Solution</h2></summary>
+<p>Apple has a lot of settings you can customise, all hidden in obscure places. The suggested apps works on the data Siri gathers from the apps via indexing and usage. And you can customise whether Siri will suggest the app or learn from the app on per app basis.</p>
+<h3>Steps:</h3>
+<ol>
+<li>Open settings and find the app<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> you want to hide</li>
+<li>Enter the Siri section and turn off the ‘Suggest This App’ toggle.</li>
+</ol>
+<p><img src="https://pineppolis.github.io/kartenstadt/assets/suggested-apps-2.jpeg" alt="suggested-apps-2.jpeg" width="400"></p>
+<p>04-02-2026</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><em>(in the apps section near the bottom)</em>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></details>]]></description>
+            <pubDate>Sat, 11 Apr 2026 16:46:15 +0000</pubDate>
+            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/Reducing My Mobile Usage.html</guid>
+        </item>
+        <item>
+            <title>How I Got A Blog Up, With Nothing</title>
+            <link>https://pineppolis.github.io/kartenstadt/posts/How I got a Blog up, with Nothing.html</link>
+            <description><![CDATA[<p>A <del>complicated</del> simple guide to get a blog up for free<em>, while not using an SSG (<a href="https://en.wikipedia.org/wiki/Static_site_generator">Static Site Generator</a>). A <del>reliable</del> working WordPress instance </em><em>to get things started</em>*. Remember, life is like a sandbox, you can always fix things. ^ssg</p>
+<p><span class="comment">%%for context: I started this website from my iPad alone.%%</span> </p>
+<details open><summary><h2>Prerequisites</h2></summary>
+<ol>
+<li>A resilient heart, because this <em>will</em> be a painful (but fun) process.</li>
+<li>*Preferably a good payment method (only <em>required</em> for the domain)(the domain is optional too)</li>
+<li>An AI tool, or godly DuckDuckGo skills.</li>
+</ol>
+<h3>Services to be Used</h3>
+<ol>
+<li>A Serverless provider like <a href="https://vercel.com">Vercel</a> or <a href="https://netlify.com">Netlify</a>, <em>(both of which provide awesome free tiers to reel poor students in)</em></li>
+<li>A database cloud manager, like <a href="https://tidbcloud.com">TiDB Cloud</a>. Get your account ready before starting with the steps for reduced mental burden. Create an organisation. Clean up, your database will initially be called ‘test’ you can change that later.</li>
+<li>An image hosting or cloud storage service, like <a href="https://cloudinary.com">Cloudinary</a></li>
+<li>A source/git client like <a href="https://github.com">GitHub</a>.</li>
+</ol>
+</details><details open><summary><h2>Steps to Making the Blog</h2></summary>
+<ol>
+<li>Open Vercel, do the basic steps like creating a team etc. Then create a project, name it \<Your-Blog>. </li>
+<li>Filter through the templates available and find <a href="https://serverlesswp.com/">ServerlessWP</a> (or alternatively, click on this hyperlink and hit deploy to Vercel)</li>
+<li>Connect it to your Git Server and create a repository to host the source code for our website. Next, It’ll ask for your database details</li>
+<li>Open TiDB Cloud. We’ll be connecting our cluster to Vercel. Click connect, then <ul>
+<li>‘Connect with’ Wordpress</li>
+<li>Generate your password</li>
+<li>Copy paste the details into vercel</li>
+<li>Do not bother with the operating system. It has no effect on our workflow
+<img src="https://pineppolis.github.io/kartenstadt/assets/database-creation.jpeg" alt="database-creation.jpeg" width="300"></li>
+</ul>
+</li>
+<li><strong>Ensure that your Vercel server and Database server are in the same region, or nearby.</strong> Also ensure Fluid Compute is on.
+    Note: To change your database region, you’ll need to recreate your cluster. Although TiDB by default, chooses the location which is close to you.
+    <em>Additionally</em>, in case of failure, you may increase the max timeout duration to 300 seconds. All of these settings are in the ‘Functions’ tab.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>
+<img src="https://pineppolis.github.io/kartenstadt/assets/vercel-timeout.jpeg" alt="vercel-timeout.jpeg">
+ <span class="comment">%% Pictorial guide to doing the above steps in vercel.%%</span> </li>
+<li>Now, let the deployment build, then head to the website through the domain provided by Vercel, ex: blog.vercel.app</li>
+<li>Then create an account and it will take a minute to build.</li>
+</ol>
+</details><details open><summary><h2>Troubleshooting</h2></summary>
+<p>If your Wordpress instance upon installing times out, <strong>ensure</strong> Step-5. 
+Then, in TiDB, we’ll need to wipe out your whole database via the SQL Editor (or) alternatively, just deleting the cluster, remaking it and continuing from Step 4.
+I’ll go with the SQL option.</p>
+<h3><em>Steps:</em></h3>
+<ol>
+<li>Open your cluster page at <a href="https://tidbcloud.com">TiDB Cloud</a> and from the menu at the top right, enter the SQL Editor.</li>
+<li>Type in:</li>
+</ol>
+<pre><code>use test;
+DROP DATABASE test;
+CREATE DATABASE &lt;the-name-you-want&gt;;
+</code></pre>
+<p><span class="comment">%%
+What it does is enter the database, then delete and create it again. We need to remove our old database because our instance failed to build properly.
+%%</span> 
+3. Then, hit ‘Run’.
+4. Open your website again, and create again.</p>
+</details><details open><summary><h2>Finishing Words</h2></summary>
+<p>This guide is not conclusive, you <em>might</em> have to DuckDuckGo (I will not be using Google, fuck Google). But, I have tried my best to sprawl out all I know, because sometimes, you <strong>need</strong> a project in life yet can seem to find your way. Creating this blog meant a lot to me, it could to you too.</p>
+<p>I’ll also be writing another article exploring the SSG <a href="#ssg" class="wikilink">#ssg</a> way too.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>The latency will be detrimental during the final install of Wordpress&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></details>]]></description>
+            <pubDate>Fri, 10 Apr 2026 02:05:37 +0000</pubDate>
+            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/How I got a Blog up, with Nothing.html</guid>
+        </item>
+        <item>
+            <title>The Making Of This Blog</title>
+            <link>https://pineppolis.github.io/kartenstadt/posts/The Making of This Blog.html</link>
+            <description><![CDATA[<details open><summary><h2>The Idea</h2></summary>
+<p>A Steam profile-like website with a custom handmade image for the article backdrop, for this one being my notes. A simple basic HTML theme to ensure compatibility with any semi-modern browser. </p>
+<p>ref:<img src="https://pineppolis.github.io/kartenstadt/assets/the-making-of-this-blog-1.jpeg" alt="the-making-of-this-blog-1.jpeg" width="400"></p>
+<p>==<em>The Core Principle:</em>== No monetisation ever. This is a blog for my satisfaction, I need projects in life and this one will hold record to all of them.</p>
+</details><details open><summary><h2>The Problem</h2></summary>
+<p>I got the drive for this project on <em>3rd February, 2026</em> while on a Google Meet with my close and dear friend Dhairya, with the initial idea bearing seed a week prior. And I lack the proper setup to be able up pull this off comfortably, majorly, I’m working on an iPad and don’t have a debit card to pay for a domain.</p>
+</details><details open><summary><h2>The Workaround</h2></summary>
+<p>Hosting: I’ll be using Github’s inbuilt website hosting as it will work for me just fine, and after acquiring a domain I’ll easily be able to migrate as well, since i retain all control of the website’s operation. </p>
+<p>==The Website:== I would’ve much preferred to use Wordpress to create a website, but I’m not fond of the idea of buying hosting services, I’d rather host it myself, which might happen some day, but for now, <del>I’ll be sticking to basic html5.</del> <del>I’ll be sticking to <a href="https://stackedit.io/">StackEdit</a>, that I definitely did not find while writing this.</del> </p>
+<p>Well shit, I’ll continue finishing the article on <a href="https://obsidian.mf">Obsidian</a> (I switched for <a href="https://joplinapp.org">Joplin</a>, its nice, but the app is clunky)</p>
+<p>The initial launch of this website will not carry the proposed design, I’ll implement it over time</p>
+<p>07-02-2026:
+After a lot of trial and error through SSG’s I have knelt and decided to deploy a <a href="https://github.com/mitchmac/ServerlessWP">ServerlessWP</a> on <a href="https://vercel.com">Vercel</a> with my database on <a href="https://tidbcloud.com">TiDB Cloud</a>. I’ll be switching to local hosting when I move into my new house, but for now this setup holds. I’ll also buy the domain after trialing this setup for a while.</p></details>]]></description>
+            <pubDate>Fri, 10 Apr 2026 01:57:10 +0000</pubDate>
+            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/The Making of This Blog.html</guid>
+        </item>
+        <item>
+            <title>The Discomfort Of Mortality</title>
+            <link>https://pineppolis.github.io/kartenstadt/posts/The Discomfort of Mortality.html</link>
+            <description><![CDATA[<details open><summary><h2>Introduction:</h2></summary>
+<p>Not mine own, but of the objects I own. Perhaps it is some insecurity, but that’s not our topic. I bought a pen, I bought some pens, I bought a pencil, I bought a fountain <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>pen. All with the concern of ink supply, <em>DURABILITY</em> and support.</p>
+</details><details open><summary><h2>My Preference:</h2></summary>
+<p>Metal. I love metal, all metals (usable ones), stainless steel, aluminium, titanium, <strong><em>BRASS</em></strong>. Why? They feel good in the hand, all my mechanical <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>pencils and <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>ballpoints are metal. Then I wanted a fountain pen, too many options, none to my taste, too many companies yet no good place to buy them. I hate living in India, can’t have anything.
+I got a Lamy Safari, ASA plastic. I hate plastic, it’s light, it’s <em>DURABLE</em>. Huh.</p>
+</details><details open><summary><h2>Plastic:</h2></summary>
+<p>The wonder material, it’s magic. <em>DURABLE</em>, doesn’t shatter, comfortably light and non-decomposable. I hate it, I shouldn’t. I’m a well-researched environmental advocate, no unnecessary hate, plastic is a need and is the best material for a lot of things. BUT ITS SO DAMN UGLY, but I bought a Lamy Safari. Why?</p>
+<h3>Feed:</h3>
+<p>Fountain pens inherently all contain plastic. Their feed <em>has</em> to be <sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>plastic. Broke my spirit. The lads running the business also have something against metal on the grip section, thus the Pilot Metropolitan which is mostly metal has a cheap plastic lower barrel which breaks. </p>
+<h3>Lamy Safari:</h3>
+<p>It’s <em>DURABLE</em>, nice plastic. That’s mostly it. Nibs are replaceable, the company is reliable, easily cleanable. It has horrible design. Huh.
+It’s ugly, not as much as i thought, but it’s ugly. I’m not satisfied. I generally hate all fountain pen designs, I like the industrial look (ref. Rotring 600). But this doesn’t matter. I’m rambling</p>
+</details><details open><summary><h2>What Mortality?</h2></summary>
+<p>When I bought my ballpoint, the main concern was the refills. I wanted a pen I could refill easily. I want everything to fit. I wanted a BigIdeaDesign Arto EDC. It’s too expensive. I compromised for a pen that supports parker-style inks (its a standard).
+I was buying a fountain pen, they take all inks, inks are everywhere. Perfect, Perfect right? Fountain pens have a mechanism, my ballpoint or my pencil does not<em>. The feed is in the pen itself. It’s flimsy, cheap, </em>DURABLE*. Huh.</p>
+<h1>The Discomfort of <del>Mortality</del>Immortality</h1>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Repeating words at the end of a clause(pen here), the literary device is called epiphora. If repeated at beginning, it’s anaphora.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Rotring 600 0.5mm and Pentel Graphgear 100 0.7mm&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Rotring 600 Ballpoint&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>It can also be ebonite (hardened rubber), I trust plastic more.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></details>]]></description>
+            <pubDate>Fri, 10 Apr 2026 01:57:10 +0000</pubDate>
+            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/The Discomfort of Mortality.html</guid>
+        </item>
+</channel>
+</rss>
