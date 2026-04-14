@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
     <title>Kartenstadt</title>
-    <link>https://pineppolis.github.io/kartenstadt/</link>
+    <link>https://www.kartenstadt.org/</link>
     <description>Karte-map; Stadt-city</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Apr 2026 19:57:18 +0000</lastBuildDate>
-    <atom:link href="https://pineppolis.github.io/kartenstadt/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Apr 2026 19:59:51 +0000</lastBuildDate>
+    <atom:link href="https://www.kartenstadt.org/feed.xml" rel="self" type="application/rss+xml" />
     
         <item>
             <title>The Serverless Problem And Rss</title>
-            <link>https://pineppolis.github.io/kartenstadt/posts/The Serverless Problem and RSS.html</link>
+            <link>https://www.kartenstadt.org/posts/The Serverless Problem and RSS.html</link>
             <description><![CDATA[<h4>Tldr; RSS: https://kartenstadt/feed</h4>
 <p>If you’ve read the previous articles, you might know that this website runs on a <a href="https://serverlesswp.com">Serverless Wordpress</a> instance. Any Serverless setup will have one thing in common, a read-only file system. Which will be the cause of my problems for a while.</p>
 <h1>The Problem</h1>
@@ -47,13 +47,13 @@ I’ll also be adding a button on the home page.</p>
 In case you have a better source or would like to tell me something really really really cool (or lame), I have an email: pineppolis@kartenstadt.org</p>
 <p>11-02-2026</p></details>]]></description>
             <pubDate>Sat, 11 Apr 2026 21:05:08 +0000</pubDate>
-            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/The Serverless Problem and RSS.html</guid>
+            <guid isPermaLink="true">https://www.kartenstadt.org/posts/The Serverless Problem and RSS.html</guid>
         </item>
         <item>
             <title>Reducing My Mobile Usage</title>
-            <link>https://pineppolis.github.io/kartenstadt/posts/Reducing My Mobile Usage.html</link>
+            <link>https://www.kartenstadt.org/posts/Reducing My Mobile Usage.html</link>
             <description><![CDATA[<p>I have tried everything I could, i made my home screen minimal, I tried adding time restrictions (which failed, they’re annoying, I like control). The problem was always that even if i hid the app away from my home screen, i would have easy access to it through the library, and end up in a loop after subconsciously tapping at it.</p>
-<p><img src="https://pineppolis.github.io/kartenstadt/assets/suggested-apps-1.jpeg" alt="suggested-apps-1.jpeg" width="400">
+<p><img src="https://www.kartenstadt.org/assets/suggested-apps-1.jpeg" alt="suggested-apps-1.jpeg" width="400">
  <span class="comment">%% The suggested apps in question.%%</span> </p>
 <p>Thus, I found a solution, removing these apps from visibility all together, while not restricting access in any manner.</p>
 <details open><summary><h2>The Solution</h2></summary>
@@ -63,7 +63,7 @@ In case you have a better source or would like to tell me something really reall
 <li>Open settings and find the app<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> you want to hide</li>
 <li>Enter the Siri section and turn off the ‘Suggest This App’ toggle.</li>
 </ol>
-<p><img src="https://pineppolis.github.io/kartenstadt/assets/suggested-apps-2.jpeg" alt="suggested-apps-2.jpeg" width="400"></p>
+<p><img src="https://www.kartenstadt.org/assets/suggested-apps-2.jpeg" alt="suggested-apps-2.jpeg" width="400"></p>
 <p>04-02-2026</p>
 <div class="footnote">
 <hr />
@@ -74,11 +74,11 @@ In case you have a better source or would like to tell me something really reall
 </ol>
 </div></details>]]></description>
             <pubDate>Sat, 11 Apr 2026 16:46:15 +0000</pubDate>
-            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/Reducing My Mobile Usage.html</guid>
+            <guid isPermaLink="true">https://www.kartenstadt.org/posts/Reducing My Mobile Usage.html</guid>
         </item>
         <item>
             <title>How I Got A Blog Up, With Nothing</title>
-            <link>https://pineppolis.github.io/kartenstadt/posts/How I got a Blog up, with Nothing.html</link>
+            <link>https://www.kartenstadt.org/posts/How I got a Blog up, with Nothing.html</link>
             <description><![CDATA[<p>A <del>complicated</del> simple guide to get a blog up for free<em>, while not using an SSG (<a href="https://en.wikipedia.org/wiki/Static_site_generator">Static Site Generator</a>). A <del>reliable</del> working WordPress instance </em><em>to get things started</em>*. Remember, life is like a sandbox, you can always fix things. ^ssg</p>
 <p><span class="comment">%%for context: I started this website from my iPad alone.%%</span> </p>
 <details open><summary><h2>Prerequisites</h2></summary>
@@ -104,13 +104,13 @@ In case you have a better source or would like to tell me something really reall
 <li>Generate your password</li>
 <li>Copy paste the details into vercel</li>
 <li>Do not bother with the operating system. It has no effect on our workflow
-<img src="https://pineppolis.github.io/kartenstadt/assets/database-creation.jpeg" alt="database-creation.jpeg" width="300"></li>
+<img src="https://www.kartenstadt.org/assets/database-creation.jpeg" alt="database-creation.jpeg" width="300"></li>
 </ul>
 </li>
 <li><strong>Ensure that your Vercel server and Database server are in the same region, or nearby.</strong> Also ensure Fluid Compute is on.
     Note: To change your database region, you’ll need to recreate your cluster. Although TiDB by default, chooses the location which is close to you.
     <em>Additionally</em>, in case of failure, you may increase the max timeout duration to 300 seconds. All of these settings are in the ‘Functions’ tab.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>
-<img src="https://pineppolis.github.io/kartenstadt/assets/vercel-timeout.jpeg" alt="vercel-timeout.jpeg">
+<img src="https://www.kartenstadt.org/assets/vercel-timeout.jpeg" alt="vercel-timeout.jpeg">
  <span class="comment">%% Pictorial guide to doing the above steps in vercel.%%</span> </li>
 <li>Now, let the deployment build, then head to the website through the domain provided by Vercel, ex: blog.vercel.app</li>
 <li>Then create an account and it will take a minute to build.</li>
@@ -145,14 +145,14 @@ What it does is enter the database, then delete and create it again. We need to 
 </ol>
 </div></details>]]></description>
             <pubDate>Fri, 10 Apr 2026 02:05:37 +0000</pubDate>
-            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/How I got a Blog up, with Nothing.html</guid>
+            <guid isPermaLink="true">https://www.kartenstadt.org/posts/How I got a Blog up, with Nothing.html</guid>
         </item>
         <item>
             <title>The Making Of This Blog</title>
-            <link>https://pineppolis.github.io/kartenstadt/posts/The Making of This Blog.html</link>
+            <link>https://www.kartenstadt.org/posts/The Making of This Blog.html</link>
             <description><![CDATA[<details open><summary><h2>The Idea</h2></summary>
 <p>A Steam profile-like website with a custom handmade image for the article backdrop, for this one being my notes. A simple basic HTML theme to ensure compatibility with any semi-modern browser. </p>
-<p>ref:<img src="https://pineppolis.github.io/kartenstadt/assets/the-making-of-this-blog-1.jpeg" alt="the-making-of-this-blog-1.jpeg" width="400"></p>
+<p>ref:<img src="https://www.kartenstadt.org/assets/the-making-of-this-blog-1.jpeg" alt="the-making-of-this-blog-1.jpeg" width="400"></p>
 <p>==<em>The Core Principle:</em>== No monetisation ever. This is a blog for my satisfaction, I need projects in life and this one will hold record to all of them.</p>
 </details><details open><summary><h2>The Problem</h2></summary>
 <p>I got the drive for this project on <em>3rd February, 2026</em> while on a Google Meet with my close and dear friend Dhairya, with the initial idea bearing seed a week prior. And I lack the proper setup to be able up pull this off comfortably, majorly, I’m working on an iPad and don’t have a debit card to pay for a domain.</p>
@@ -164,11 +164,11 @@ What it does is enter the database, then delete and create it again. We need to 
 <p>07-02-2026:
 After a lot of trial and error through SSG’s I have knelt and decided to deploy a <a href="https://github.com/mitchmac/ServerlessWP">ServerlessWP</a> on <a href="https://vercel.com">Vercel</a> with my database on <a href="https://tidbcloud.com">TiDB Cloud</a>. I’ll be switching to local hosting when I move into my new house, but for now this setup holds. I’ll also buy the domain after trialing this setup for a while.</p></details>]]></description>
             <pubDate>Fri, 10 Apr 2026 01:57:10 +0000</pubDate>
-            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/The Making of This Blog.html</guid>
+            <guid isPermaLink="true">https://www.kartenstadt.org/posts/The Making of This Blog.html</guid>
         </item>
         <item>
             <title>The Discomfort Of Mortality</title>
-            <link>https://pineppolis.github.io/kartenstadt/posts/The Discomfort of Mortality.html</link>
+            <link>https://www.kartenstadt.org/posts/The Discomfort of Mortality.html</link>
             <description><![CDATA[<details open><summary><h2>Introduction:</h2></summary>
 <p>Not mine own, but of the objects I own. Perhaps it is some insecurity, but that’s not our topic. I bought a pen, I bought some pens, I bought a pencil, I bought a fountain <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>pen. All with the concern of ink supply, <em>DURABILITY</em> and support.</p>
 </details><details open><summary><h2>My Preference:</h2></summary>
@@ -203,7 +203,7 @@ I was buying a fountain pen, they take all inks, inks are everywhere. Perfect, P
 </ol>
 </div></details>]]></description>
             <pubDate>Fri, 10 Apr 2026 01:57:10 +0000</pubDate>
-            <guid isPermaLink="true">https://pineppolis.github.io/kartenstadt/posts/The Discomfort of Mortality.html</guid>
+            <guid isPermaLink="true">https://www.kartenstadt.org/posts/The Discomfort of Mortality.html</guid>
         </item>
 </channel>
 </rss>
