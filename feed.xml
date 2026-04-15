@@ -5,7 +5,7 @@
     <link>https://www.kartenstadt.org/</link>
     <description>Karte-map; Stadt-city</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Apr 2026 20:02:09 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2026 00:30:10 +0000</lastBuildDate>
     <atom:link href="https://www.kartenstadt.org/feed.xml" rel="self" type="application/rss+xml" />
     
         <item>
@@ -33,7 +33,7 @@ However, object storage extend beyond this definition. They have this thing call
 <h3>What’s a CDN?</h3>
 <p>I attached an MDN(Mozilla Docs) link above, but here’s a quick summary. They take your file, spread it across the entire globe (ie. their servers) and then distribute it accordingly. When a user in Asia connects to your website, they get the Asia server.
 However, I don’t give a shit. This will have me lose control over the files and I’m a privacy freak who still has a gmail address.</p>
-<details open><summary><h2>My Solution</h2></summary>
+<h2>My Solution</h2>
 <p>I will be ditching media <em>for now</em>, including the old uploaded files. I want RSS to work and my website to be reliable.</p>
 <h1>RSS</h1>
 <p>Why do i even want RSS? It’s simple, it debloats my website and gives you the content right away (not to say that my site is bloated, its quite appealing). And It’ll help with my original goal of keeping this website available everywhere easily.</p>
@@ -45,7 +45,7 @@ However, I don’t give a shit. This will have me lose control over the files an
 I’ll also be adding a button on the home page.</p>
 <p>PS: I <em>always</em> attach a reliable source. Like for database and CDN, not because I’m stupid and can’t read, there are just better ways to get into this stuff, and the <a href="https://developer.mozilla.org/en-US/">MDN</a> website is so beautiful.
 In case you have a better source or would like to tell me something really really really cool (or lame), I have an email: pineppolis@kartenstadt.org</p>
-<p>11-02-2026</p></details>]]></description>
+<p>11-02-2026</p>]]></description>
             <pubDate>Sat, 11 Apr 2026 21:05:08 +0000</pubDate>
             <guid isPermaLink="true">https://www.kartenstadt.org/posts/The Serverless Problem and RSS.html</guid>
         </item>
@@ -56,7 +56,7 @@ In case you have a better source or would like to tell me something really reall
 <p><img src="https://www.kartenstadt.org/assets/suggested-apps-1.jpeg" alt="suggested-apps-1.jpeg" width="400">
  <span class="comment">%% The suggested apps in question.%%</span> </p>
 <p>Thus, I found a solution, removing these apps from visibility all together, while not restricting access in any manner.</p>
-<details open><summary><h2>The Solution</h2></summary>
+<h2>The Solution</h2>
 <p>Apple has a lot of settings you can customise, all hidden in obscure places. The suggested apps works on the data Siri gathers from the apps via indexing and usage. And you can customise whether Siri will suggest the app or learn from the app on per app basis.</p>
 <h3>Steps:</h3>
 <ol>
@@ -72,7 +72,7 @@ In case you have a better source or would like to tell me something really reall
 <p><em>(in the apps section near the bottom)</em>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
-</div></details>]]></description>
+</div>]]></description>
             <pubDate>Sat, 11 Apr 2026 16:46:15 +0000</pubDate>
             <guid isPermaLink="true">https://www.kartenstadt.org/posts/Reducing My Mobile Usage.html</guid>
         </item>
@@ -81,7 +81,7 @@ In case you have a better source or would like to tell me something really reall
             <link>https://www.kartenstadt.org/posts/How I got a Blog up, with Nothing.html</link>
             <description><![CDATA[<p>A <del>complicated</del> simple guide to get a blog up for free<em>, while not using an SSG (<a href="https://en.wikipedia.org/wiki/Static_site_generator">Static Site Generator</a>). A <del>reliable</del> working WordPress instance </em><em>to get things started</em>*. Remember, life is like a sandbox, you can always fix things. ^ssg</p>
 <p><span class="comment">%%for context: I started this website from my iPad alone.%%</span> </p>
-<details open><summary><h2>Prerequisites</h2></summary>
+<h2>Prerequisites</h2>
 <ol>
 <li>A resilient heart, because this <em>will</em> be a painful (but fun) process.</li>
 <li>*Preferably a good payment method (only <em>required</em> for the domain)(the domain is optional too)</li>
@@ -94,7 +94,7 @@ In case you have a better source or would like to tell me something really reall
 <li>An image hosting or cloud storage service, like <a href="https://cloudinary.com">Cloudinary</a></li>
 <li>A source/git client like <a href="https://github.com">GitHub</a>.</li>
 </ol>
-</details><details open><summary><h2>Steps to Making the Blog</h2></summary>
+<h2>Steps to Making the Blog</h2>
 <ol>
 <li>Open Vercel, do the basic steps like creating a team etc. Then create a project, name it \<Your-Blog>. </li>
 <li>Filter through the templates available and find <a href="https://serverlesswp.com/">ServerlessWP</a> (or alternatively, click on this hyperlink and hit deploy to Vercel)</li>
@@ -115,7 +115,7 @@ In case you have a better source or would like to tell me something really reall
 <li>Now, let the deployment build, then head to the website through the domain provided by Vercel, ex: blog.vercel.app</li>
 <li>Then create an account and it will take a minute to build.</li>
 </ol>
-</details><details open><summary><h2>Troubleshooting</h2></summary>
+<h2>Troubleshooting</h2>
 <p>If your Wordpress instance upon installing times out, <strong>ensure</strong> Step-5. 
 Then, in TiDB, we’ll need to wipe out your whole database via the SQL Editor (or) alternatively, just deleting the cluster, remaking it and continuing from Step 4.
 I’ll go with the SQL option.</p>
@@ -133,7 +133,7 @@ What it does is enter the database, then delete and create it again. We need to 
 %%</span> 
 3. Then, hit ‘Run’.
 4. Open your website again, and create again.</p>
-</details><details open><summary><h2>Finishing Words</h2></summary>
+<h2>Finishing Words</h2>
 <p>This guide is not conclusive, you <em>might</em> have to DuckDuckGo (I will not be using Google, fuck Google). But, I have tried my best to sprawl out all I know, because sometimes, you <strong>need</strong> a project in life yet can seem to find your way. Creating this blog meant a lot to me, it could to you too.</p>
 <p>I’ll also be writing another article exploring the SSG <a href="#ssg" class="wikilink">#ssg</a> way too.</p>
 <div class="footnote">
@@ -143,45 +143,45 @@ What it does is enter the database, then delete and create it again. We need to 
 <p>The latency will be detrimental during the final install of Wordpress&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
-</div></details>]]></description>
+</div>]]></description>
             <pubDate>Fri, 10 Apr 2026 02:05:37 +0000</pubDate>
             <guid isPermaLink="true">https://www.kartenstadt.org/posts/How I got a Blog up, with Nothing.html</guid>
         </item>
         <item>
             <title>The Making Of This Blog</title>
             <link>https://www.kartenstadt.org/posts/The Making of This Blog.html</link>
-            <description><![CDATA[<details open><summary><h2>The Idea</h2></summary>
+            <description><![CDATA[<h2>The Idea</h2>
 <p>A Steam profile-like website with a custom handmade image for the article backdrop, for this one being my notes. A simple basic HTML theme to ensure compatibility with any semi-modern browser. </p>
 <p>ref:<img src="https://www.kartenstadt.org/assets/the-making-of-this-blog-1.jpeg" alt="the-making-of-this-blog-1.jpeg" width="400"></p>
 <p>==<em>The Core Principle:</em>== No monetisation ever. This is a blog for my satisfaction, I need projects in life and this one will hold record to all of them.</p>
-</details><details open><summary><h2>The Problem</h2></summary>
+<h2>The Problem</h2>
 <p>I got the drive for this project on <em>3rd February, 2026</em> while on a Google Meet with my close and dear friend Dhairya, with the initial idea bearing seed a week prior. And I lack the proper setup to be able up pull this off comfortably, majorly, I’m working on an iPad and don’t have a debit card to pay for a domain.</p>
-</details><details open><summary><h2>The Workaround</h2></summary>
+<h2>The Workaround</h2>
 <p>Hosting: I’ll be using Github’s inbuilt website hosting as it will work for me just fine, and after acquiring a domain I’ll easily be able to migrate as well, since i retain all control of the website’s operation. </p>
 <p>==The Website:== I would’ve much preferred to use Wordpress to create a website, but I’m not fond of the idea of buying hosting services, I’d rather host it myself, which might happen some day, but for now, <del>I’ll be sticking to basic html5.</del> <del>I’ll be sticking to <a href="https://stackedit.io/">StackEdit</a>, that I definitely did not find while writing this.</del> </p>
 <p>Well shit, I’ll continue finishing the article on <a href="https://obsidian.mf">Obsidian</a> (I switched for <a href="https://joplinapp.org">Joplin</a>, its nice, but the app is clunky)</p>
 <p>The initial launch of this website will not carry the proposed design, I’ll implement it over time</p>
 <p>07-02-2026:
-After a lot of trial and error through SSG’s I have knelt and decided to deploy a <a href="https://github.com/mitchmac/ServerlessWP">ServerlessWP</a> on <a href="https://vercel.com">Vercel</a> with my database on <a href="https://tidbcloud.com">TiDB Cloud</a>. I’ll be switching to local hosting when I move into my new house, but for now this setup holds. I’ll also buy the domain after trialing this setup for a while.</p></details>]]></description>
+After a lot of trial and error through SSG’s I have knelt and decided to deploy a <a href="https://github.com/mitchmac/ServerlessWP">ServerlessWP</a> on <a href="https://vercel.com">Vercel</a> with my database on <a href="https://tidbcloud.com">TiDB Cloud</a>. I’ll be switching to local hosting when I move into my new house, but for now this setup holds. I’ll also buy the domain after trialing this setup for a while.</p>]]></description>
             <pubDate>Fri, 10 Apr 2026 01:57:10 +0000</pubDate>
             <guid isPermaLink="true">https://www.kartenstadt.org/posts/The Making of This Blog.html</guid>
         </item>
         <item>
             <title>The Discomfort Of Mortality</title>
             <link>https://www.kartenstadt.org/posts/The Discomfort of Mortality.html</link>
-            <description><![CDATA[<details open><summary><h2>Introduction:</h2></summary>
+            <description><![CDATA[<h2>Introduction:</h2>
 <p>Not mine own, but of the objects I own. Perhaps it is some insecurity, but that’s not our topic. I bought a pen, I bought some pens, I bought a pencil, I bought a fountain <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>pen. All with the concern of ink supply, <em>DURABILITY</em> and support.</p>
-</details><details open><summary><h2>My Preference:</h2></summary>
+<h2>My Preference:</h2>
 <p>Metal. I love metal, all metals (usable ones), stainless steel, aluminium, titanium, <strong><em>BRASS</em></strong>. Why? They feel good in the hand, all my mechanical <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>pencils and <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>ballpoints are metal. Then I wanted a fountain pen, too many options, none to my taste, too many companies yet no good place to buy them. I hate living in India, can’t have anything.
 I got a Lamy Safari, ASA plastic. I hate plastic, it’s light, it’s <em>DURABLE</em>. Huh.</p>
-</details><details open><summary><h2>Plastic:</h2></summary>
+<h2>Plastic:</h2>
 <p>The wonder material, it’s magic. <em>DURABLE</em>, doesn’t shatter, comfortably light and non-decomposable. I hate it, I shouldn’t. I’m a well-researched environmental advocate, no unnecessary hate, plastic is a need and is the best material for a lot of things. BUT ITS SO DAMN UGLY, but I bought a Lamy Safari. Why?</p>
 <h3>Feed:</h3>
 <p>Fountain pens inherently all contain plastic. Their feed <em>has</em> to be <sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>plastic. Broke my spirit. The lads running the business also have something against metal on the grip section, thus the Pilot Metropolitan which is mostly metal has a cheap plastic lower barrel which breaks. </p>
 <h3>Lamy Safari:</h3>
 <p>It’s <em>DURABLE</em>, nice plastic. That’s mostly it. Nibs are replaceable, the company is reliable, easily cleanable. It has horrible design. Huh.
 It’s ugly, not as much as i thought, but it’s ugly. I’m not satisfied. I generally hate all fountain pen designs, I like the industrial look (ref. Rotring 600). But this doesn’t matter. I’m rambling</p>
-</details><details open><summary><h2>What Mortality?</h2></summary>
+<h2>What Mortality?</h2>
 <p>When I bought my ballpoint, the main concern was the refills. I wanted a pen I could refill easily. I want everything to fit. I wanted a BigIdeaDesign Arto EDC. It’s too expensive. I compromised for a pen that supports parker-style inks (its a standard).
 I was buying a fountain pen, they take all inks, inks are everywhere. Perfect, Perfect right? Fountain pens have a mechanism, my ballpoint or my pencil does not<em>. The feed is in the pen itself. It’s flimsy, cheap, </em>DURABLE*. Huh.</p>
 <h1>The Discomfort of <del>Mortality</del>Immortality</h1>
@@ -201,7 +201,7 @@ I was buying a fountain pen, they take all inks, inks are everywhere. Perfect, P
 <p>It can also be ebonite (hardened rubber), I trust plastic more.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
-</div></details>]]></description>
+</div>]]></description>
             <pubDate>Fri, 10 Apr 2026 01:57:10 +0000</pubDate>
             <guid isPermaLink="true">https://www.kartenstadt.org/posts/The Discomfort of Mortality.html</guid>
         </item>
