@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hue — a comfy color picker</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root{
+    --bg-color: #100f0f;
+    --code-bg: #131313;
+    --text-main: #E2E2E2;
+    --text-muted: #7f8c8d;
+    --border-color: #2a2a2a;
+    --accent-gold: #d4a76a;
+    --ring: 220px;
+  }
+
+  body.light-mode{
+    --bg-color: #fcfcfc;
+    --code-bg: #f0f0f0;
+    --text-main: #1a1a1a;
+    --text-muted: #576574;
+    --border-color: #d1d1d1;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html, body{
+    height:100%;
+    margin:0;
+    background: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'IBM Plex Mono', monospace;
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .stage{
+    position:relative;
+    width:min(92vw, 480px);
+    padding:48px 36px 40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:28px;
+    animation: floatIn 900ms cubic-bezier(.16,1,.3,1) both;
+  }
+
+  @keyframes floatIn{
+    from{ opacity:0; transform: translateY(18px) scale(.98); }
+    to{ opacity:1; transform: translateY(0) scale(1); }
+  }
+
+  .wheel-wrap{
+    position:relative;
+    width: var(--ring);
+    height: var(--ring);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    touch-action:none;
+  }
+
+  #hueWheel{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background: conic-gradient(from 90deg,
+      hsl(0 100% 50%), hsl(60 100% 50%), hsl(120 100% 50%),
+      hsl(180 100% 50%), hsl(240 100% 50%), hsl(300 100% 50%), hsl(360 100% 50%));
+    cursor: grab;
+    box-shadow: 0 0 0 1px var(--border-color);
+    position:relative;
+    transition: box-shadow .25s ease;
+  }
+
+  #hueWheel:active{ cursor: grabbing; }
+
+  #hueHandle{
+    position:absolute;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background: var(--bg-color);
+    border: 3px solid var(--accent-gold);
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    pointer-events:none;
+    transition: box-shadow .2s ease, background .3s ease, border-color .3s ease;
+  }
+
+  .sv-square{
+    position:absolute;
+    width: 118px;
+    height: 118px;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 8px;
+    overflow:hidden;
+    box-shadow: 0 0 0 1px var(--border-color);
+    cursor: grab;
+    touch-action:none;
+  }
+
+  .sv-square:active{ cursor:grabbing; }
+
+  #satLayer{
+    position:absolute; inset:0;
+    background: linear-gradient(to right, #fff, hsl(var(--h,0) 100% 50%));
+  }
+  #valLayer{
+    position:absolute; inset:0;
+    background: linear-gradient(to top, #000, rgba(0,0,0,0));
+  }
+
+  #svHandle{
+    position:absolute;
+    width:14px; height:14px;
+    border-radius:50%;
+    border: 2px solid var(--accent-gold);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+    transform: translate(-50%,-50%);
+    pointer-events:none;
+  }
+
+  .readout{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    width:100%;
+  }
+
+  .swatch{
+    width:64px;
+    height:64px;
+    border-radius:6px;
+    box-shadow: 0 0 0 1px var(--border-color);
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .swatch.pulse{ transform: scale(1.08); }
+
+  .hex-pill{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor:pointer;
+    user-select:none;
+    transition: border-color .25s ease, transform .15s ease;
+  }
+  .hex-pill:hover{ border-color: var(--accent-gold); }
+  .hex-pill:active{ transform: scale(0.97); }
+
+  #hexValue{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: var(--accent-gold);
+  }
+
+  .copy-hint{
+    font-size: 11px;
+    color: var(--text-muted);
+    opacity:0;
+    transform: translateY(4px);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .copy-hint.show{ opacity:1; transform: translateY(0); }
+
+  .label{
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  #theme-toggle{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--code-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    z-index: 1000;
+    transition: border-color .25s ease;
+  }
+  #theme-toggle:hover{ border-color: var(--accent-gold); }
+</style>
+</head>
+<body>
+
+<button id="theme-toggle">Toggle Theme</button>
+
+<div class="stage">
+  <div class="label">pick a color</div>
+
+  <div class="wheel-wrap">
+    <div id="hueWheel">
+      <div id="hueHandle"></div>
+      <div class="sv-square" id="svSquare">
+        <div id="satLayer"></div>
+        <div id="valLayer"></div>
+        <div id="svHandle"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="readout">
+    <div class="swatch" id="swatch"></div>
+    <div class="hex-pill" id="hexPill">
+      <span id="hexValue">#FFFFFF</span>
+    </div>
+    <div class="copy-hint" id="copyHint">copied to clipboard</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const wheel = document.getElementById('hueWheel');
+  const hueHandle = document.getElementById('hueHandle');
+  const svSquare = document.getElementById('svSquare');
+  const svHandle = document.getElementById('svHandle');
+  const swatch = document.getElementById('swatch');
+  const hexValue = document.getElementById('hexValue');
+  const hexPill = document.getElementById('hexPill');
+  const copyHint = document.getElementById('copyHint');
+  const themeToggle = document.getElementById('theme-toggle');
+
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+  });
+
+  let h = 30, s = 55, v = 80;
+  let draggingHue = false, draggingSV = false;
+
+  let hueAngle = (h) * Math.PI/180;
+  let hueVelocity = 0;
+  let inertiaFrame = null;
+  let lastAngle = hueAngle;
+  let lastTime = 0;
+
+  function hsvToHex(h,s,v){
+    s/=100; v/=100;
+    const k = n => (n + h/60) % 6;
+    const f = n => v - v*s*Math.max(0, Math.min(k(n), 4-k(n), 1));
+    const toHex = c => Math.round(c*255).toString(16).padStart(2,'0');
+    return '#' + [toHex(f(5)), toHex(f(3)), toHex(f(1))].join('').toUpperCase();
+  }
+
+  function updateColor(){
+    const hex = hsvToHex(h,s,v);
+    hexValue.textContent = hex;
+    swatch.style.background = hex;
+    wheel.style.setProperty('--h', h);
+    document.getElementById('satLayer').style.background =
+      `linear-gradient(to right, #fff, hsl(${h} 100% 50%))`;
+  }
+
+  function placeHueHandle(angleRad){
+    const r = wheel.clientWidth/2 - 10;
+    const cx = wheel.clientWidth/2, cy = wheel.clientHeight/2;
+    const x = cx + r*Math.cos(angleRad);
+    const y = cy + r*Math.sin(angleRad);
+    hueHandle.style.left = x + 'px';
+    hueHandle.style.top = y + 'px';
+  }
+
+  function placeSVHandle(){
+    const size = svSquare.clientWidth;
+    const x = (s/100) * size;
+    const y = (1 - v/100) * size;
+    svHandle.style.left = x + 'px';
+    svHandle.style.top = y + 'px';
+  }
+
+  function angleFromEvent(clientX, clientY){
+    const rect = wheel.getBoundingClientRect();
+    const cx = rect.left + rect.width/2;
+    const cy = rect.top + rect.height/2;
+    return Math.atan2(clientY - cy, clientX - cx);
+  }
+
+  function setHueFromAngle(angle){
+    let deg = angle * 180/Math.PI;
+    deg = (deg - 90 + 360) % 360;
+    h = (360 - deg) % 360;
+    placeHueHandle(angle);
+    updateColor();
+  }
+
+  function stopInertia(){
+    if(inertiaFrame){ cancelAnimationFrame(inertiaFrame); inertiaFrame = null; }
+  }
+
+  function runInertia(){
+    stopInertia();
+    function step(){
+      hueVelocity *= 0.94;
+      if(Math.abs(hueVelocity) < 0.0008){ hueVelocity = 0; return; }
+      hueAngle += hueVelocity;
+      setHueFromAngle(hueAngle);
+      inertiaFrame = requestAnimationFrame(step);
+    }
+    inertiaFrame = requestAnimationFrame(step);
+  }
+
+  function pointerDownHue(e){
+    stopInertia();
+    draggingHue = true;
+    lastTime = performance.now();
+    const pt = e.touches ? e.touches[0] : e;
+    lastAngle = angleFromEvent(pt.clientX, pt.clientY);
+    moveHue(e);
+    e.preventDefault();
+  }
+
+  function moveHue(e){
+    if(!draggingHue) return;
+    const pt = e.touches ? e.touches[0] : e;
+    const angle = angleFromEvent(pt.clientX, pt.clientY);
+    const now = performance.now();
+    const dt = Math.max(now - lastTime, 1);
+
+    let delta = angle - lastAngle;
+    if(delta > Math.PI) delta -= 2*Math.PI;
+    if(delta < -Math.PI) delta += 2*Math.PI;
+
+    hueVelocity = delta / dt * 16;
+    hueAngle += delta;
+    setHueFromAngle(hueAngle);
+
+    lastAngle = angle;
+    lastTime = now;
+  }
+
+  function pointerUpHue(){
+    if(!draggingHue) return;
+    draggingHue = false;
+    if(Math.abs(hueVelocity) > 0.002){ runInertia(); }
+  }
+
+  function svFromEvent(clientX, clientY){
+    const rect = svSquare.getBoundingClientRect();
+    let x = (clientX - rect.left) / rect.width;
+    let y = (clientY - rect.top) / rect.height;
+    x = Math.min(1, Math.max(0, x));
+    y = Math.min(1, Math.max(0, y));
+    s = x * 100;
+    v = (1 - y) * 100;
+    placeSVHandle();
+    updateColor();
+    swatch.classList.add('pulse');
+    setTimeout(()=>swatch.classList.remove('pulse'), 200);
+  }
+
+  function pointerDownSV(e){
+    draggingSV = true;
+    const pt = e.touches ? e.touches[0] : e;
+    svFromEvent(pt.clientX, pt.clientY);
+    e.stopPropagation();
+    e.preventDefault();
+  }
+  function moveSV(e){
+    if(!draggingSV) return;
+    const pt = e.touches ? e.touches[0] : e;
+    svFromEvent(pt.clientX, pt.clientY);
+  }
+  function pointerUpSV(){ draggingSV = false; }
+
+  wheel.addEventListener('mousedown', pointerDownHue);
+  window.addEventListener('mousemove', moveHue);
+  window.addEventListener('mouseup', pointerUpHue);
+
+  wheel.addEventListener('touchstart', pointerDownHue, {passive:false});
+  window.addEventListener('touchmove', moveHue, {passive:false});
+  window.addEventListener('touchend', pointerUpHue);
+
+  svSquare.addEventListener('mousedown', pointerDownSV);
+  window.addEventListener('mousemove', moveSV);
+  window.addEventListener('mouseup', pointerUpSV);
+
+  svSquare.addEventListener('touchstart', pointerDownSV, {passive:false});
+  window.addEventListener('touchmove', moveSV, {passive:false});
+  window.addEventListener('touchend', pointerUpSV);
+
+  hexPill.addEventListener('click', () => {
+    navigator.clipboard.writeText(hexValue.textContent).catch(()=>{});
+    copyHint.classList.add('show');
+    clearTimeout(hexPill._t);
+    hexPill._t = setTimeout(()=> copyHint.classList.remove('show'), 1200);
+  });
+
+  window.addEventListener('resize', () => { placeHueHandle(hueAngle); placeSVHandle(); });
+  setHueFromAngle(hueAngle);
+  placeSVHandle();
+  updateColor();
+})();
+</script>
+</body>
+</html>
